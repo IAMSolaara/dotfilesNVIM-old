@@ -51,6 +51,9 @@ Plugin 'nvim-telescope/telescope.nvim'
 Plugin 'nvim-telescope/telescope-fzf-native.nvim'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'preservim/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'PhilRunninger/nerdtree-visual-selection'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -132,3 +135,4 @@ nnoremap <silent> <Space>ff :Telescope find_files<CR>
 
 " NERDTree settings --lorecast162
 nnoremap <silent> <Space>nt :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusUseNerdFonts = 1
