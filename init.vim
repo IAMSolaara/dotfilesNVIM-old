@@ -94,6 +94,10 @@ let g:netrw_banner = 0
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+" tab navigation binds --lorecast162
+nnoremap { :tabp<CR>
+nnoremap } :tabn<CR>
+
 " bindings to move lines --lorecast162
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
