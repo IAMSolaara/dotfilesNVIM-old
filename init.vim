@@ -47,6 +47,10 @@ Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'vim/killersheep'
 Plugin 'neoclide/coc.nvim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'nvim-telescope/telescope-fzf-native.nvim'
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'preservim/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -124,3 +128,9 @@ let g:dashboard_preview_command = "cat"
 let g:dashboard_preview_file = "~/.config/nvim/logo"
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
+
+" Telescope settings --lorecast162
+nnoremap <silent> <Space>ff :Telescope find_files<CR>
+
+" NERDTree settings --lorecast162
+nnoremap <silent> <Space>nt :NERDTreeToggle<CR>
