@@ -54,6 +54,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'PhilRunninger/nerdtree-visual-selection'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
