@@ -114,10 +114,10 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 let g:airline#extensions#hunks#enabled = 1
 
-nnoremap gph<CR> :GitGutterPrevHunk<CR>
-nnoremap gnh<CR> :GitGutterNextHunk<CR>
-nnoremap gsh<CR> :GitGutterStageHunk<CR>
-nnoremap guh<CR> :GitGutterUndoHunk<CR>
+nnoremap <Space>gph :GitGutterPrevHunk<CR>
+nnoremap <Space>gnh :GitGutterNextHunk<CR>
+nnoremap <Space>gsh :GitGutterStageHunk<CR>
+nnoremap <Space>guh :GitGutterUndoHunk<CR>
 
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
