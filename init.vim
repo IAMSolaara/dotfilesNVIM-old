@@ -71,8 +71,6 @@ filetype plugin indent on    " required
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
-color dracula
-let g:netrw_banner = 0
 " enable dracula theme --lorecast162
 color dracula
 
