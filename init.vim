@@ -71,9 +71,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" enable dracula airline theme --lorecast162
+" airline settings --lorecast162
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#bufferline#enabled = 1
 
 " enable dracula theme --lorecast162
 color dracula
