@@ -100,6 +100,9 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 nnoremap { :tabp<CR>
 nnoremap } :tabn<CR>
 
+" misc bindings
+nnoremap <Space>qq :quit<CR>
+
 " bindings to move lines --lorecast162
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -135,6 +138,52 @@ let g:dashboard_preview_command = "cat"
 let g:dashboard_preview_file = "~/.config/nvim/logo"
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
+
+let g:dashboard_default_executive ='telescope'
+
+let g:dashboard_custom_shortcut_icon = {
+			\ 'new_file':     ' ',
+			\ 'last_session': ' ',
+			\ 'find_history': ' ',
+			\ 'find_file':    ' ',
+			\ 'find_word':    ' ',
+			\ 'book_marks':   ' ',
+			\ 'exit':         ' ',
+	\ }
+
+let g:dashboard_custom_shortcut = {
+			\ 'new_file':     'SPC c n',
+			\ 'last_session': 'SPC s l',
+			\ 'find_history': 'SPC f h',
+			\ 'find_file':    'SPC f f',
+			\ 'find_word':    'SPC f a',
+			\ 'book_marks':   'SPC f b',
+			\ 'exit':         'SPC q q',
+	\ }
+
+let g:dashboard_custom_section = {
+    \ 'a'             :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['new_file'].'New file                              '.g:dashboard_custom_shortcut['new_file']],
+          \ 'command':function('dashboard#handler#new_file')},
+    \ 'b'         :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['last_session'].'Open last session                     '.g:dashboard_custom_shortcut['last_session']],
+          \ 'command':function('dashboard#handler#last_session')},
+    \ 'c'         :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
+          \ 'command':function('dashboard#handler#find_history')},
+    \ 'd'            :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['find_file'].'Find file                             '.g:dashboard_custom_shortcut['find_file']],
+          \ 'command':function('dashboard#handler#find_file')},
+    \ 'e'            :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['find_word'].'Find word                             '.g:dashboard_custom_shortcut['find_word']],
+          \ 'command': function('dashboard#handler#find_word')},
+    \ 'f'           :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['book_marks'].'Jump to bookmarks                     '.g:dashboard_custom_shortcut['book_marks']],
+          \ 'command':function('dashboard#handler#book_marks')},
+    \ 'g'           :{
+          \ 'description': [g:dashboard_custom_shortcut_icon['exit'].'Exit                                  '.g:dashboard_custom_shortcut['exit']],
+          \ 'command':'quit'},
+	\ }
 
 " Telescope settings --lorecast162
 nnoremap <silent> <Space>ff :Telescope find_files<CR>
