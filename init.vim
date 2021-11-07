@@ -35,6 +35,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'dracula/vim'
 Plugin 'glepnir/dashboard-nvim'
+Plugin 'ryanoasis/vim-devicons'
 
 " for programming languages --lorecast162
 Plugin 'kovetskiy/sxhkd-vim'
