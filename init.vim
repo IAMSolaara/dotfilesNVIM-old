@@ -1,6 +1,14 @@
-" -----------------
-" |  INIT CONFIG  |
-" -----------------
+" ┌──────────────────────────────────────────────────────────────────────────┐
+" │ lorecast162's                                                            │
+" │      _   __         _    ___              ______            _____        │
+" │     / | / /__  ____| |  / (_)___ ___     / ____/___  ____  / __(_)___ _  │
+" │    /  |/ / _ \/ __ \ | / / / __ `__ \   / /   / __ \/ __ \/ /_/ / __ `/  │
+" │   / /|  /  __/ /_/ / |/ / / / / / / /  / /___/ /_/ / / / / __/ / /_/ /   │
+" │  /_/ |_/\___/\____/|___/_/_/ /_/ /_/   \____/\____/_/ /_/_/ /_/\__, /    │
+" │                                                               /____/     │
+" │                                                                          │
+" └──────────────────────────────────────────────────────────────────────────┘
+"
 
 set nocompatible              " be iMproved, required
 " configure config path based on OS --lorecast162
@@ -11,6 +19,16 @@ else
 endif
 
 filetype off                  " required
+
+" ┌─────────────────────────────────────────┐
+" │      ____  __            _              │
+" │     / __ \/ /_  ______ _(_)___  _____   │
+" │    / /_/ / / / / / __ `/ / __ \/ ___/   │
+" │   / ____/ / /_/ / /_/ / / / / (__  )    │
+" │  /_/   /_/\__,_/\__, /_/_/ /_/____/     │
+" │                /____/                   │
+" │                                         │
+" └─────────────────────────────────────────┘
 
 " set the runtime path to include Vundle and initialize
 exec 'set rtp+=' . configPath . "/bundle/Vundle.vim"
@@ -66,46 +84,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" ------------------
-" |  MISC CONFIGS  |
-" ------------------
-
-" set tab stuff --lorecast162
-set tabstop=4
-set softtabstop=0 noexpandtab
-set shiftwidth=4
-" turn search highlighting off because it sucks --lorecast162
-set nohlsearch
-" turn line wrapping off --lorecast162
-set nowrap
-" enable number lines --lorecast162
-set number
-" enable mouse functionality in terminal --lorecast162
-set mouse=a
-" turn on syntax highlighting --lorecast162
-syntax on
-" avoid vim overriding terminal background --lorecast162
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
-
-" make sure splits happen below, not above --lorecast162
-set splitbelow
-
-" make terminal use true color --lorecast162
-set termguicolors
-
-" enable dracula theme --lorecast162
-color dracula
-
-" get rid of the banner in netrw --lorecast162
-let g:netrw_banner = 0
-
-" map space to leader --lorecast162
-map <Space> <Leader>
-
-" fix syntax highlighting getting out of sync on big JS/JSX/TS/TSX files --lorecast162
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+" ┌─────────────────────────────────────────────────────────────────┐
+" │      __ __              ____  _           ___                   │
+" │     / //_/__  __  __   / __ )(_)___  ____/ (_)___  ____ ______  │
+" │    / ,< / _ \/ / / /  / __  / / __ \/ __  / / __ \/ __ `/ ___/  │
+" │   / /| /  __/ /_/ /  / /_/ / / / / / /_/ / / / / / /_/ (__  )   │
+" │  /_/ |_\___/\__, /  /_____/_/_/ /_/\__,_/_/_/ /_/\__, /____/    │
+" │            /____/                               /____/          │
+" │                                                                 │
+" └─────────────────────────────────────────────────────────────────┘
 
 " tab navigation binds --lorecast162
 nnoremap { :tabp<CR>
@@ -122,9 +109,68 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" --------------------
-" |  PLUGIN CONFIGS  |
-" --------------------
+" map space to leader --lorecast162
+map <Space> <Leader>
+
+" ┌───────────────────────────────────────────────────────────────────┐
+" │      __  ____              _____      __  __  _                   │
+" │     /  |/  (_)_________   / ___/___  / /_/ /_(_)___  ____ ______  │
+" │    / /|_/ / / ___/ ___/   \__ \/ _ \/ __/ __/ / __ \/ __ `/ ___/  │
+" │   / /  / / (__  ) /__    ___/ /  __/ /_/ /_/ / / / / /_/ (__  )   │
+" │  /_/  /_/_/____/\___/   /____/\___/\__/\__/_/_/ /_/\__, /____/    │
+" │                                                   /____/          │
+" │                                                                   │
+" └───────────────────────────────────────────────────────────────────┘
+
+" set tab stuff --lorecast162
+set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
+
+" turn search highlighting off because it sucks --lorecast162
+set nohlsearch
+
+" turn line wrapping off --lorecast162
+set nowrap
+
+" enable number lines --lorecast162
+set number
+
+" enable mouse functionality in terminal --lorecast162
+set mouse=a
+
+" turn on syntax highlighting --lorecast162
+syntax on
+
+" avoid vim overriding terminal background --lorecast162
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+
+" make sure splits happen below, not above --lorecast162
+set splitbelow
+
+" make terminal use true color --lorecast162
+set termguicolors
+
+" enable dracula theme --lorecast162
+color dracula
+
+" get rid of the banner in netrw --lorecast162
+let g:netrw_banner = 0
+
+" fix syntax highlighting getting out of sync on big JS/JSX/TS/TSX files --lorecast162
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+" ┌────────────────────────────────────────────────────────────────────────────┐
+" │      ____  __            _          _____      __  __  _                   │
+" │     / __ \/ /_  ______ _(_)___     / ___/___  / /_/ /_(_)___  ____ ______  │
+" │    / /_/ / / / / / __ `/ / __ \    \__ \/ _ \/ __/ __/ / __ \/ __ `/ ___/  │
+" │   / ____/ / /_/ / /_/ / / / / /   ___/ /  __/ /_/ /_/ / / / / /_/ (__  )   │
+" │  /_/   /_/\__,_/\__, /_/_/ /_/   /____/\___/\__/\__/_/_/ /_/\__, /____/    │
+" │                /____/                                      /____/          │
+" │                                                                            │
+" └────────────────────────────────────────────────────────────────────────────┘
 
 " colorizer settings --lorecast162
 lua << EOF
@@ -140,7 +186,7 @@ let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#bufferline#enabled = 1
 
-" set Coc plugins --lorecast162
+" CoC settings --lorecast162
 let g:coc_global_extensions = ['coc-tsserver', 'coc-rls', 'coc-emmet']
 
 " use prettier if it's installed --lorecast162
@@ -152,11 +198,6 @@ endif
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 let g:airline#extensions#hunks#enabled = 1
-
-nnoremap <Leader>gph :GitGutterPrevHunk<CR>
-nnoremap <Leader>gnh :GitGutterNextHunk<CR>
-nnoremap <Leader>gsh :GitGutterStageHunk<CR>
-nnoremap <Leader>guh :GitGutterUndoHunk<CR>
 
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
@@ -172,9 +213,6 @@ else
 endif
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
-
-nnoremap <Leader>ss :<C-u>SessionSave<CR>
-nnoremap <Leader>sl :<C-u>SessionLoad<CR>
 
 let g:dashboard_default_executive = 'telescope'
 
@@ -222,15 +260,11 @@ let g:dashboard_custom_section = {
           \ 'command':'quit'},
 	\ }
 
-" Telescope settings --lorecast162
-nnoremap <silent> <Leader>ff :Telescope find_files<CR>
-nnoremap <silent> <Leader>fh :Telescope oldfiles<CR>
-
 " NERDTree settings --lorecast162
 nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
 
-" emmet settings
+" emmet settings --lorecast162
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
@@ -257,5 +291,30 @@ let g:user_emmet_settings = {
 						\  },
 						\ }
 
-" fugitive settings --lorecast162
+" ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+" │      ____  __            _          __ __              ____  _           ___                   │
+" │     / __ \/ /_  ______ _(_)___     / //_/__  __  __   / __ )(_)___  ____/ (_)___  ____ ______  │
+" │    / /_/ / / / / / __ `/ / __ \   / ,< / _ \/ / / /  / __  / / __ \/ __  / / __ \/ __ `/ ___/  │
+" │   / ____/ / /_/ / /_/ / / / / /  / /| /  __/ /_/ /  / /_/ / / / / / /_/ / / / / / /_/ (__  )   │
+" │  /_/   /_/\__,_/\__, /_/_/ /_/  /_/ |_\___/\__, /  /_____/_/_/ /_/\__,_/_/_/ /_/\__, /____/    │
+" │                /____/                     /____/                               /____/          │
+" │                                                                                                │
+" └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+" GitGutter binds --lorecast162
+nnoremap <Leader>gph :GitGutterPrevHunk<CR>
+nnoremap <Leader>gnh :GitGutterNextHunk<CR>
+nnoremap <Leader>gsh :GitGutterStageHunk<CR>
+nnoremap <Leader>guh :GitGutterUndoHunk<CR>
+
+" fugitive binds --lorecast162
 nnoremap <Leader>gc :Git commit<CR>
+
+" Telescope binds --lorecast162
+nnoremap <silent> <Leader>ff :Telescope find_files<CR>
+nnoremap <silent> <Leader>fh :Telescope oldfiles<CR>
+
+" dashboard-nvim binds --lorecast162
+nnoremap <Leader>ss :<C-u>SessionSave<CR>
+nnoremap <Leader>sl :<C-u>SessionLoad<CR>
+
