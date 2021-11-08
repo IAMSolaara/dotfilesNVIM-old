@@ -79,7 +79,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " airline settings --lorecast162
-let g:airline_theme='dracula'
+let g:airline_theme = 'dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#bufferline#enabled = 1
 
@@ -151,7 +151,7 @@ endif
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
 
-let g:dashboard_default_executive ='telescope'
+let g:dashboard_default_executive = 'telescope'
 
 let g:dashboard_custom_shortcut_icon = {
 			\ 'new_file':     ' ',
