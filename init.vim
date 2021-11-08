@@ -48,6 +48,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'PhilRunninger/nerdtree-visual-selection'
 Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,7 +128,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#bufferline#enabled = 1
 
 " set Coc plugins --lorecast162
-let g:coc_global_extensions = ['coc-tsserver', 'coc-rls']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-rls', 'coc-emmet']
 
 " use prettier if it's installed --lorecast162
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
@@ -215,3 +216,30 @@ nnoremap <silent> <Leader>fh :Telescope oldfiles<CR>
 " NERDTree settings --lorecast162
 nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" emmet settings
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+let g:user_emmet_mode='inv'
+
+let g:user_emmet_settings = {
+			\  'variables': {'lang': 'ja'},
+			\  'html': {
+				\    'default_attributes': {
+					\      'option': {'value': v:null},
+					\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
+					\    },
+					\    'snippets': {
+						\     'html:5': "<!DOCTYPE html>\n"
+						\              ."<html lang=\"${lang}\">\n"
+						\              ."<head>\n"
+						\              ."\t<meta charset=\"${charset}\">\n"
+						\              ."\t<title></title>\n"
+						\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+						\              ."</head>\n"
+						\              ."<body>\n\t${child}|\n</body>\n"
+						\              ."</html>",
+						\    },
+						\  },
+						\ }
