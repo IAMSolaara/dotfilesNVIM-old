@@ -243,3 +243,6 @@ let g:user_emmet_settings = {
 						\    },
 						\  },
 						\ }
+
+" fugitive settings --lorecast162
+nnoremap <Leader>gc :Git commit<CR>
