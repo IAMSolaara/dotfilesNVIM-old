@@ -1,22 +1,8 @@
-set nocompatible              " be iMproved, required
-"set tab stuff --lorecast162
-set tabstop=4
-set softtabstop=0 noexpandtab
-set shiftwidth=4
-" turn search highlighting off because it sucks --lorecast162
-set nohlsearch
-" turn line wrapping off --lorecast162
-set nowrap
-" enable number lines --lorecast162
-set number
-" enable mouse functionality in terminal --lorecast162
-set mouse=a
-" turn on syntax highlighting --lorecast162
-syntax on
-" avoid vim overriding terminal background --lorecast162
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+" -----------------
+" |  INIT CONFIG  |
+" -----------------
 
+set nocompatible              " be iMproved, required
 " configure config path based on OS --lorecast162
 if has('win32')
 	let configPath = $HOME . "\\AppData\\Local\\nvim"
@@ -78,10 +64,30 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" airline settings --lorecast162
-let g:airline_theme = 'dracula'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#bufferline#enabled = 1
+" ------------------
+" |  MISC CONFIGS  |
+" ------------------
+
+" set tab stuff --lorecast162
+set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
+" turn search highlighting off because it sucks --lorecast162
+set nohlsearch
+" turn line wrapping off --lorecast162
+set nowrap
+" enable number lines --lorecast162
+set number
+" enable mouse functionality in terminal --lorecast162
+set mouse=a
+" turn on syntax highlighting --lorecast162
+syntax on
+" avoid vim overriding terminal background --lorecast162
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+
+" make sure splits happen below, not above --lorecast162
+set splitbelow
 
 " enable dracula theme --lorecast162
 color dracula
@@ -117,6 +123,15 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" --------------------
+" |  PLUGIN CONFIGS  |
+" --------------------
+
+" airline settings --lorecast162
+let g:airline_theme = 'dracula'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#bufferline#enabled = 1
 
 " set Coc plugins --lorecast162
 let g:coc_global_extensions = ['coc-tsserver', 'coc-rls']
