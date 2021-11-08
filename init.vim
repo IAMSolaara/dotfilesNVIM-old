@@ -95,15 +95,8 @@ color dracula
 " get rid of the banner in netrw --lorecast162
 let g:netrw_banner = 0
 
-"TODO add bindings to handle tabs and splits with LEADER
-" set space to do nothing --lorecast162
-"nnoremap <Space> <Nop>
-
-" remap space to leader key --lorecast162
-"let mapleader = "\<Space>"
-
-" rapid key bindings with leader --lorecast162
-"map <Leader>q q <CR>
+" map space to leader --lorecast162
+map <Space> <Leader>
 
 " fix syntax highlighting getting out of sync on big JS/JSX/TS/TSX files --lorecast162
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
@@ -114,7 +107,7 @@ nnoremap { :tabp<CR>
 nnoremap } :tabn<CR>
 
 " misc bindings
-nnoremap <Space>qq :quit<CR>
+nnoremap <Leader>qq :quit<CR>
 
 " bindings to move lines --lorecast162
 nnoremap <A-j> :m .+1<CR>==
@@ -146,10 +139,10 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
 let g:airline#extensions#hunks#enabled = 1
 
-nnoremap <Space>gph :GitGutterPrevHunk<CR>
-nnoremap <Space>gnh :GitGutterNextHunk<CR>
-nnoremap <Space>gsh :GitGutterStageHunk<CR>
-nnoremap <Space>guh :GitGutterUndoHunk<CR>
+nnoremap <Leader>gph :GitGutterPrevHunk<CR>
+nnoremap <Leader>gnh :GitGutterNextHunk<CR>
+nnoremap <Leader>gsh :GitGutterStageHunk<CR>
+nnoremap <Leader>guh :GitGutterUndoHunk<CR>
 
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
@@ -166,8 +159,8 @@ endif
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
 
-nnoremap <Space>ss :<C-u>SessionSave<CR>
-nnoremap <Space>sl :<C-u>SessionLoad<CR>
+nnoremap <Leader>ss :<C-u>SessionSave<CR>
+nnoremap <Leader>sl :<C-u>SessionLoad<CR>
 
 let g:dashboard_default_executive = 'telescope'
 
@@ -216,9 +209,9 @@ let g:dashboard_custom_section = {
 	\ }
 
 " Telescope settings --lorecast162
-nnoremap <silent> <Space>ff :Telescope find_files<CR>
-nnoremap <silent> <Space>fh :Telescope oldfiles<CR>
+nnoremap <silent> <Leader>ff :Telescope find_files<CR>
+nnoremap <silent> <Leader>fh :Telescope oldfiles<CR>
 
 " NERDTree settings --lorecast162
-nnoremap <silent> <Space>nt :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
