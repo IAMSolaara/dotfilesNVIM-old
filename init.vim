@@ -68,6 +68,7 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'PhilRunninger/nerdtree-visual-selection'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
+Plugin 'liuchengxu/vista.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -291,6 +292,9 @@ let g:user_emmet_settings = {
 						\  },
 						\ }
 
+" Vista settings --lorecast162
+let g:vista_default_executive = "coc"
+
 " ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
 " │      ____  __            _          __ __              ____  _           ___                   │
 " │     / __ \/ /_  ______ _(_)___     / //_/__  __  __   / __ )(_)___  ____/ (_)___  ____ ______  │
@@ -317,4 +321,7 @@ nnoremap <silent> <Leader>fh :Telescope oldfiles<CR>
 " dashboard-nvim binds --lorecast162
 nnoremap <Leader>ss :<C-u>SessionSave<CR>
 nnoremap <Leader>sl :<C-u>SessionLoad<CR>
+
+" Vista binds --lorecast162
+nnoremap <Leader>so :Vista!!<CR>
 
