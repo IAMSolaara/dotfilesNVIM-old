@@ -166,6 +166,9 @@ endif
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
 
+nnoremap <Space>ss :<C-u>SessionSave<CR>
+nnoremap <Space>sl :<C-u>SessionLoad<CR>
+
 let g:dashboard_default_executive = 'telescope'
 
 let g:dashboard_custom_shortcut_icon = {
@@ -214,6 +217,7 @@ let g:dashboard_custom_section = {
 
 " Telescope settings --lorecast162
 nnoremap <silent> <Space>ff :Telescope find_files<CR>
+nnoremap <silent> <Space>fh :Telescope oldfiles<CR>
 
 " NERDTree settings --lorecast162
 nnoremap <silent> <Space>nt :NERDTreeToggle<CR>
