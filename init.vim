@@ -17,11 +17,18 @@ syntax on
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 
+" configure config path based on OS --lorecast162
+if has('win32')
+	let configPath = $HOME . "\\AppData\\Local\\nvim"
+else
+	let configPath = $HOME . "/.config/nvim"
+endif
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+exec 'set rtp+=' . configPath . "/bundle/Vundle.vim"
+call vundle#begin(configPath . '/bundle')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -134,8 +141,13 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
 " dashboard-nvim settings --lorecast162
-let g:dashboard_preview_command = "cat"
-let g:dashboard_preview_file = "~/.config/nvim/logo"
+if has('win32')
+	let g:dashboard_preview_command = "type"
+	let g:dashboard_preview_file = configPath . "\\logo"
+else
+	let g:dashboard_preview_command = "cat"
+	let g:dashboard_preview_file = configPath . "/logo"
+endif
 let g:dashboard_preview_file_height = 18
 let g:dashboard_preview_file_width = 101
 
