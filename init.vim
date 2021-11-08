@@ -29,6 +29,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'dracula/vim'
 Plugin 'glepnir/dashboard-nvim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'norcalli/nvim-colorizer.lua'
 
 " for programming languages --lorecast162
 Plugin 'kovetskiy/sxhkd-vim'
@@ -90,6 +91,9 @@ autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 " make sure splits happen below, not above --lorecast162
 set splitbelow
 
+" make terminal use true color --lorecast162
+set termguicolors
+
 " enable dracula theme --lorecast162
 color dracula
 
@@ -121,6 +125,15 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " --------------------
 " |  PLUGIN CONFIGS  |
 " --------------------
+
+" colorizer settings --lorecast162
+lua << EOF
+require 'colorizer'.setup {
+	'*';
+	css = { rgb_fn = true; };
+	html = { rgb_fn = true; };
+	}
+EOF
 
 " airline settings --lorecast162
 let g:airline_theme = 'dracula'
