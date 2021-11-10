@@ -104,11 +104,19 @@ nnoremap <Leader>qq :quitall<CR>
 
 " bindings to move lines --lorecast162
 nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-Down> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
+nnoremap <A-Up> :m .-2<CR>==
+
 inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-Down> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
+inoremap <A-Up> <Esc>:m .-2<CR>==gi
+
 vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-Down> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-Up> :m '<-2<CR>gv=gv
 
 " map space to leader --lorecast162
 map <Space> <Leader>
