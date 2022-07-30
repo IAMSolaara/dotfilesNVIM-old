@@ -212,6 +212,10 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
 " dashboard-nvim settings --lorecast162
+execute printf('highlight DashboardShortCut guifg=%s', g:dracula#palette.yellow[0])
+execute printf('highlight DashboardHeader guifg=%s', g:dracula#palette.green[0])
+execute printf('highlight DashboardCenter guifg=%s', g:dracula#palette.pink[0])
+execute printf('highlight DashboardFooter guifg=%s', g:dracula#palette.comment[0])
 lua << EOF
 local db = require('dashboard')
 
