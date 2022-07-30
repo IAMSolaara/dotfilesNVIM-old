@@ -212,61 +212,90 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
 " dashboard-nvim settings --lorecast162
-if has('win32')
-	let g:dashboard_preview_command = "type"
-	let g:dashboard_preview_file = configPath . "\\logo"
-else
-	let g:dashboard_preview_command = "cat"
-	let g:dashboard_preview_file = configPath . "/logo"
-endif
-let g:dashboard_preview_file_height = 18
-let g:dashboard_preview_file_width = 101
+lua << EOF
+local db = require('dashboard')
 
-let g:dashboard_default_executive = 'telescope'
+ -- TODO: move this out to global block or smth
+ --       when doing the lua conversion of whole vimrc
+local home = os.getenv('HOME')
+local os = vim.loop.os_uname().sysname
+local configPath = home .. "/.config/nvim"
 
-let g:dashboard_custom_shortcut_icon = {
-			\ 'new_file':     ' ',
-			\ 'last_session': ' ',
-			\ 'find_history': ' ',
-			\ 'find_file':    ' ',
-			\ 'find_word':    ' ',
-			\ 'book_marks':   ' ',
-			\ 'exit':         ' ',
-	\ }
+if os == "Windows_NT" then
+	configPath = home .. "\\AppData\\Local\\nvim"
+end
 
-let g:dashboard_custom_shortcut = {
-			\ 'new_file':     'SPC c n',
-			\ 'last_session': 'SPC s l',
-			\ 'find_history': 'SPC f h',
-			\ 'find_file':    'SPC f f',
-			\ 'find_word':    'SPC f a',
-			\ 'book_marks':   'SPC f b',
-			\ 'exit':         'SPC q q',
-	\ }
+db.preview_file_path = configPath .. "/logo"
+db.preview_command = "cat | cat"
 
-let g:dashboard_custom_section = {
-    \ 'a'             :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['new_file'].'New file                              '.g:dashboard_custom_shortcut['new_file']],
-          \ 'command':function('dashboard#handler#new_file')},
-    \ 'b'         :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['last_session'].'Open last session                     '.g:dashboard_custom_shortcut['last_session']],
-          \ 'command':function('dashboard#handler#last_session')},
-    \ 'c'         :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
-          \ 'command':function('dashboard#handler#find_history')},
-    \ 'd'            :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['find_file'].'Find file                             '.g:dashboard_custom_shortcut['find_file']],
-          \ 'command':function('dashboard#handler#find_file')},
-    \ 'e'            :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['find_word'].'Find word                             '.g:dashboard_custom_shortcut['find_word']],
-          \ 'command': function('dashboard#handler#find_word')},
-    \ 'f'           :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['book_marks'].'Jump to bookmarks                     '.g:dashboard_custom_shortcut['book_marks']],
-          \ 'command':function('dashboard#handler#book_marks')},
-    \ 'g'           :{
-          \ 'description': [g:dashboard_custom_shortcut_icon['exit'].'Exit                                  '.g:dashboard_custom_shortcut['exit']],
-          \ 'command':'quit'},
-	\ }
+if os == "Windows_NT" then
+	db.preview_file_path = configPath .. "\\logo"
+	db.preview_command = "type"
+end
+
+-- TODO: Make this work without preview (custom_header doesnt get centered for some reason :<)
+-- db.custom_header = {
+-- '__/\\\\\\\\____________/\\\\\\\\___________________________________________________________',
+-- ' _\\/\\\\\\\\\\\\________/\\\\\\\\\\\\___________________________________________________________',
+-- '   _\\/\\\\\\//\\\\\\____/\\\\\\//\\\\\\__________________________________/\\\\\\_____________________',
+-- '     _\\/\\\\\\\\///\\\\\\/\\\\\\/_\\/\\\\\\_____/\\\\\\\\\\\\\\\\___/\\\\/\\\\\\\\\\\\____/\\\\\\\\\\\\\\\\\\\\\\__/\\\\\\\\\\\\\\\\\\____',
+-- '       _\\/\\\\\\__\\///\\\\\\/___\\/\\\\\\___/\\\\\\/////\\\\\\_\\/\\\\\\////\\\\\\__\\////\\\\\\////__\\////////\\\\\\___',
+-- '         _\\/\\\\\\____\\///_____\\/\\\\\\__/\\\\\\\\\\\\\\\\\\\\\\__\\/\\\\\\__\\//\\\\\\____\\/\\\\\\________/\\\\\\\\\\\\\\\\\\\\__',
+-- '           _\\/\\\\\\_____________\\/\\\\\\_\\//\\\\///////___\\/\\\\\\___\\/\\\\\\____\\/\\\\\\_/\\\\___/\\\\\\/////\\\\\\__',
+-- '             _\\/\\\\\\_____________\\/\\\\\\__\\//\\\\\\\\\\\\\\\\\\\\_\\/\\\\\\___\\/\\\\\\____\\//\\\\\\\\\\___\\//\\\\\\\\\\\\\\\\/\\\\_',
+-- '                _\\///______________\\///____\\//////////__\\///____\\///______\\/////_____\\////////\\//__',
+-- '                  __/\\\\\\_____________________________/\\\\\\_____________________________________________',
+-- '                    _\\/\\\\\\____________________________\\/\\\\\\_____________________________________________',
+-- '                      _\\/\\\\\\____________________________\\/\\\\\\_____________________________________________',
+-- '                        _\\/\\\\\\______________/\\\\\\\\\\\\\\\\\\____\\/\\\\\\_________/\\\\\\\\\\\\\\\\\\\\_________________________',
+-- '                          _\\/\\\\\\_____________\\////////\\\\\\___\\/\\\\\\\\\\\\\\\\\\__\\/\\\\\\//////__________________________',
+-- '                            _\\/\\\\\\_______________/\\\\\\\\\\\\\\\\\\\\__\\/\\\\\\////\\\\\\_\\/\\\\\\\\\\\\\\\\\\\\_________________________',
+-- '                              _\\/\\\\\\______________/\\\\\\/////\\\\\\__\\/\\\\\\__\\/\\\\\\_\\////////\\\\\\_________________________',
+-- '                                _\\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_\\//\\\\\\\\\\\\\\\\/\\\\_\\/\\\\\\\\\\\\\\\\\\___/\\\\\\\\\\\\\\\\\\\\_________________________',
+-- '                                  _\\///////////////___\\////////\\//__\\/////////___\\//////////__________________________'
+-- 	}
+db.preview_file_height = 18
+db.preview_file_width = 101
+db.custom_center = {
+	{
+		icon = ' ',
+		desc = 'New file                              ',
+		shortcut = 'SPC c n',
+		action = 'DashboardNewFile'
+	},
+	{
+		icon = ' ',
+		desc = 'Open last session                     ',
+		shortcut = 'SPC s l',
+		action = 'SessionLoad'
+	},
+	{
+		icon = ' ',
+		desc = 'Recently opened files                 ',
+		shortcut = 'SPC f h',
+		action =  'Telescope oldfiles'
+	},
+	{
+		icon = ' ',
+		desc = 'Find file                             ',
+		shortcut = 'SPC f f',
+		action = 'Telescope find_files find_command=rg,--hidden,--files'
+	},
+	{
+		icon = ' ',
+		desc = 'Find word                             ',
+		shortcut = 'SPC f a',
+		action = 'Telescope live_grep'
+	},
+	{
+		icon = ' ',
+		desc = 'Exit                                  ',
+		shortcut = 'SPC q q',
+		action = 'exit'
+	},
+}
+EOF
+
 
 " NERDTree settings --lorecast162
 nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
