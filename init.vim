@@ -195,7 +195,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#bufferline#enabled = 1
 
 " CoC settings --lorecast162
-let g:coc_global_extensions = ['coc-tsserver', 'coc-rls', 'coc-emmet', 'coc-clangd', 'coc-pyright', 'coc-json', 'coc-go', 'coc-java', 'coc-flutter', 'coc-html']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-rust-analyzer', 'coc-emmet', 'coc-clangd', 'coc-pyright', 'coc-json', 'coc-go', 'coc-java', 'coc-flutter', 'coc-html']
 
 " use prettier if it's installed --lorecast162
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
