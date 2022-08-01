@@ -1,0 +1,76 @@
+ -- ┌──────────────────────────────────────────────────────────────────────────┐
+ -- │ lorecast162's                                                            │
+ -- │      _   __         _    ___              ______            _____        │
+ -- │     / | / /__  ____| |  / (_)___ ___     / ____/___  ____  / __(_)___ _  │
+ -- │    /  |/ / _ \/ __ \ | / / / __ `__ \   / /   / __ \/ __ \/ /_/ / __ `/  │
+ -- │   / /|  /  __/ /_/ / |/ / / / / / / /  / /___/ /_/ / / / / __/ / /_/ /   │
+ -- │  /_/ |_/\___/\____/|___/_/_/ /_/ /_/   \____/\____/_/ /_/_/ /_/\__, /    │
+ -- │                                                               /____/     │
+ -- │                                                                          │
+ -- └──────────────────────────────────────────────────────────────────────────┘
+
+ -- ┌───────────────────────────────────────────────────────────────────┐
+ -- │      __  ____              _____      __  __  _                   │
+ -- │     /  |/  (_)_________   / ___/___  / /_/ /_(_)___  ____ ______  │
+ -- │    / /|_/ / / ___/ ___/   \__ \/ _ \/ __/ __/ / __ \/ __ `/ ___/  │
+ -- │   / /  / / (__  ) /__    ___/ /  __/ /_/ /_/ / / / / /_/ (__  )   │
+ -- │  /_/  /_/_/____/\___/   /____/\___/\__/\__/_/_/ /_/\__, /____/    │
+ -- │                                                   /____/          │
+ -- │                                                                   │
+ -- └───────────────────────────────────────────────────────────────────┘
+
+local utils = require('utils')
+
+ -- fix syntax highlighting getting out of sync on big JS/JSX/TS/TSX files --lorecast162
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.{js,jsx,ts,tsx}",
+	command = ":syntax sync fromstart"
+})
+
+vim.api.nvim_create_autocmd("BufLeave", {
+	pattern = "*.{js,jsx,ts,tsx}",
+	command = ":syntax sync clear"
+})
+
+ -- avoid vim overriding terminal background --lorecast162
+vim.api.nvim_create_autocmd("Colorscheme", {
+	pattern = "*",
+	command = [[
+		highlight Normal ctermbg=NONE guibg=NONE
+		highlight NonText ctermbg=NONE guibg=NONE
+	]]
+})
+
+ -- set tab stuff --lorecast162
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 0
+-- set softtabstop=0 noexpandtab
+vim.opt.shiftwidth = 4
+
+ -- turn search highlighting off because it sucks --lorecast162
+vim.opt.hlsearch = false
+
+ -- turn line wrapping off --lorecast162
+vim.opt.wrap = false
+
+ -- enable number lines --lorecast162
+vim.opt.number = true
+
+ -- enable mouse functionality in terminal --lorecast162
+vim.opt.mouse = "a"
+
+ -- turn on syntax highlighting --lorecast162
+vim.syntax = true
+
+ -- make sure splits happen below, not above --lorecast162
+vim.opt.splitbelow = true
+
+ -- make terminal use true color --lorecast162
+vim.opt.termguicolors = true
+
+ -- enable dracula theme --lorecast162
+vim.api.nvim_command("colorscheme dracula")
+
+ -- get rid of the banner in netrw --lorecast162
+vim.g.netrw_banner = 0
+
