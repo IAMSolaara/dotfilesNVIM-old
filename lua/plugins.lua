@@ -17,7 +17,7 @@ require('packer').startup(function(use)
 	-- general styling --lorecast162
 	use {'powerline/powerline', as = "powerline"}
 
-	use {'vim-airline/vim-airline', after = "powerline", config = function()
+	use {'vim-airline/vim-airline', config = function()
 		-- airline settings --lorecast162
 		vim.g.airline_theme = 'dracula'
 		vim.g.airline_powerline_fonts = true
