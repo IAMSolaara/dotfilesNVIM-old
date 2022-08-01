@@ -1,14 +1,3 @@
- -- ┌──────────────────────────────────────────────────────────────────────────┐
- -- │ lorecast162's                                                            │
- -- │      _   __         _    ___              ______            _____        │
- -- │     / | / /__  ____| |  / (_)___ ___     / ____/___  ____  / __(_)___ _  │
- -- │    /  |/ / _ \/ __ \ | / / / __ `__ \   / /   / __ \/ __ \/ /_/ / __ `/  │
- -- │   / /|  /  __/ /_/ / |/ / / / / / / /  / /___/ /_/ / / / / __/ / /_/ /   │
- -- │  /_/ |_/\___/\____/|___/_/_/ /_/ /_/   \____/\____/_/ /_/_/ /_/\__, /    │
- -- │                                                               /____/     │
- -- │                                                                          │
- -- └──────────────────────────────────────────────────────────────────────────┘
-
  -- ┌───────────────────────────────────────────────────────────────────┐
  -- │      __  ____              _____      __  __  _                   │
  -- │     /  |/  (_)_________   / ___/___  / /_/ /_(_)___  ____ ______  │
@@ -44,7 +33,7 @@ vim.api.nvim_create_autocmd("Colorscheme", {
  -- set tab stuff --lorecast162
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 0
--- set softtabstop=0 noexpandtab
+vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 
  -- turn search highlighting off because it sucks --lorecast162
@@ -68,9 +57,6 @@ vim.opt.splitbelow = true
  -- make terminal use true color --lorecast162
 vim.opt.termguicolors = true
 
- -- enable dracula theme --lorecast162
-vim.api.nvim_command("colorscheme dracula")
-
  -- get rid of the banner in netrw --lorecast162
-vim.g.netrw_banner = 0
+vim.g.netrw_banner = false
 
