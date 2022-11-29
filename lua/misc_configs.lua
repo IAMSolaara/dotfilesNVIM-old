@@ -60,3 +60,5 @@ vim.opt.termguicolors = true
  -- get rid of the banner in netrw --lorecast162
 vim.g.netrw_banner = false
 
+-- persisten undo --lorecast162
+vim.opt.undofile = true
