@@ -41,3 +41,6 @@ if utils.get_os() == "Windows_NT" then
 	utils.map("i", "<C-Z>", "<Nop>")
 	utils.map("v", "<C-Z>", "<Nop>")
 end
+
+-- bind for code actions --iamsolaara
+vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, {noremap = true})
