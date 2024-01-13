@@ -308,4 +308,8 @@ require('packer').startup(function(use)
 
 	use 'fidian/hexmode'
 
+	use {'tomtom/tcomment_vim', after = 'mason.nvim', config = function()
+		vim.keymap.set({'n','v','i'}, "<C-/>", ":TComment<CR>", {noremap = true})
+	end}
+
 end)
