@@ -170,12 +170,33 @@ require('packer').startup(function(use)
 
 	use 'nvim-lua/plenary.nvim'
 
-	use {'preservim/nerdtree', config = function()
-		local utils = require("utils")
-		-- NERDTree settings --lorecast162
-		utils.map("n", "<Space>nt", ":NERDTreeToggle<CR>", {silent = true})
-		vim.g.NERDTreeGitStatusUseNerdFonts = true
-	end}
+	-- use {'preservim/nerdtree', config = function()
+	-- 	local utils = require("utils")
+	-- 	-- NERDTree settings --lorecast162
+	-- 	utils.map("n", "<Space>nt", ":NERDTreeToggle<CR>", {silent = true})
+	-- 	vim.g.NERDTreeGitStatusUseNerdFonts = true
+	-- end}
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional
+		},
+		config = function()
+			local function open_nvim_tree()
+				-- open the tree
+				require("nvim-tree.api").tree.open()
+			end
+			local function toggle_nvim_tree()
+				-- open the tree
+				require("nvim-tree.api").tree.toggle()
+			end
+
+			require("nvim-tree").setup {}
+
+			vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+			vim.keymap.set("n", "<Leader>nt", toggle_nvim_tree, {silent = true})
+		end
+	}
 	use {'Xuyuanp/nerdtree-git-plugin', requires = "preservim/nerdtree"}
 
 	use 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -289,19 +310,33 @@ require('packer').startup(function(use)
 		-- Set up lspconfig.
 
 		require("mason").setup()
-		require("mason-lspconfig").setup()
+		require("mason-lspconfig").setup({
+			ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "tsserver" }
+		})
 
-    require("mason-lspconfig").setup_handlers {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-			local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            require("lspconfig")[server_name].setup {
-				capabilities = default_capabilities
-			}
-        end,
-    }
+		require("mason-lspconfig").setup_handlers {
+			-- The first entry (without a key) will be the default handler
+			-- and will be called for each installed server that doesn't have
+			-- a dedicated handler.
+			function (server_name) -- default handler (optional)
+				local capabilities = require('cmp_nvim_lsp').default_capabilities()
+				require("lspconfig")[server_name].setup {
+					capabilities = default_capabilities
+				}
+			end,
+           ["lua_ls"] = function ()
+               local lspconfig = require("lspconfig")
+               lspconfig.lua_ls.setup {
+                   settings = {
+                       Lua = {
+                           diagnostics = {
+                               globals = { "vim" }
+                           }
+                       }
+                   }
+               }
+           end,
+		}
 
 
 	end}
