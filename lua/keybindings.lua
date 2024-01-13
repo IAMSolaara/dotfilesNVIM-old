@@ -11,35 +11,35 @@
 local utils = require('utils')
 
 -- map space to leader --lorecast162
-utils.map("", "<Space>", "<Leader>")
+vim.keymap.set("", "<Space>", "<Leader>", {noremap = true})
 vim.g.mapleader = ' '
 
 -- tab navigation binds --lorecast162
-utils.map("n", "{", ":tabp<CR>")
-utils.map("n", "}", ":tabn<CR>")
+vim.keymap.set("n", "{", ":tabp<CR>", {noremap = true})
+vim.keymap.set("n", "}", ":tabn<CR>", {noremap = true})
 
 -- misc bindings
-utils.map("n", "<Leader>qq", ":quitall<CR>")
+vim.keymap.set("n", "<Leader>qq", ":quitall<CR>", {noremap = true})
 
 -- bindings to move lines --lorecast162
-utils.map("n", "<A-j>", ":m .+1<CR>==")
-utils.map("n", "<A-Down>", ":m .+1<CR>==")
-utils.map("n", "<A-k>", ":m .-2<CR>==")
-utils.map("n", "<A-Up>", ":m .-2<CR>==")
-utils.map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
-utils.map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi")
-utils.map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-utils.map("i", "<A-Up>", "<Esc>:m .-2<CR>==gi")
-utils.map("v", "<A-j>", ":m '>+1<CR>gv=gv")
-utils.map("v", "<A-Down>", ":m '>+1<CR>gv=gv")
-utils.map("v", "<A-k>", ":m '<-2<CR>gv=gv")
-utils.map("v", "<A-Up>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", {noremap = true})
+vim.keymap.set("n", "<A-Down>", ":m .+1<CR>==", {noremap = true})
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", {noremap = true})
+vim.keymap.set("n", "<A-Up>", ":m .-2<CR>==", {noremap = true})
+
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", {noremap = true})
+vim.keymap.set("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", {noremap = true})
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", {noremap = true})
+vim.keymap.set("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", {noremap = true})
+
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", {noremap = true})
+vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv", {noremap = true})
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", {noremap = true})
+vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv", {noremap = true})
 
 -- disable suspend on Windows --lorecast162
 if utils.get_os() == "Windows_NT" then 
-	utils.map("n", "<C-Z>", "<Nop>")
-	utils.map("i", "<C-Z>", "<Nop>")
-	utils.map("v", "<C-Z>", "<Nop>")
+	vim.keymap.set({'n','v','i'}, "<C-Z>", "<Nop>", {noremap = true})
 end
 
 -- bind for code actions --iamsolaara
