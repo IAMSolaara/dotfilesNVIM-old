@@ -1,3 +1,8 @@
+# Deprecation notice!
+I won't be updating these dotfiles for the foreseeable future. Please update to the [new ones](https://github.com/IAMSolaara/dotfilesNVIM).
+
+I might come back to these and update them though. I'll see :3
+
 # Instructions 
 
 To use these NeoVim configs you need to have neovim >=0.7 and the following dependencies:
